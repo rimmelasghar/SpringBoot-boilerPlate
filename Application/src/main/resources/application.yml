@@ -1,0 +1,53 @@
+server:
+  port: 8082
+  error:
+    include-message: always
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/world?createDatabaseIfNotExist=true&autoReconnect=true&useSSL=false
+    username: ${MYSQL_USER:root}
+    password: ${MYSQL_PASSWORD:03322593149}
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: update
+      show-sql: true
+      format-sql: true
+      type: info
+      use-sql-comments: true
+      properties:
+        hibernate.use_sql_comments: true
+        hibernate.format_sql: true
+
+springdoc:
+  show-actuator: true
+  paths-to-match: /**
+  packages-to-scan: package com.rimmelasghar.application
+
+management:
+  endpoint:
+    health:
+      show-details: ALWAYS
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+logging:
+  level:
+    org.springframework: INFO
+    com.rimmelasghar.application: INFO
+
+jwt:
+  secretKey: secret
+  issuer: rimmelasghar.com
+  expirationMinute: 10
+
+swagger:
+  contact-name: Rimmel Asghar
+  contact-mail: rimmelasghar4@gmail.com.com
+  contact-url: https://github.com/rimmelasghar
+  app-name: Spring Boot Boilerplate Project
+  app-description: "Spring Boot Boilerplate is a starter kit. This project includes : Spring Boot(2.7.4), Spring Data JPA, Spring Validation, Spring Security + JWT Token, MySQL, Mapstruct, Lombok, Swagger"
+
+
