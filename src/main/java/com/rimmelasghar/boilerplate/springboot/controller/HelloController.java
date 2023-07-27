@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HelloController {
 
-	@GetMapping("/hello")
+	@GetMapping("/health")
 	public ResponseEntity<String> sayHello() {
 
-		return ResponseEntity.ok("Hello Spring Boot Boilerplate");
+		return ResponseEntity.ok("Working Hot as Chili Sauce - developed by Rimmel");
 	}
 
 }

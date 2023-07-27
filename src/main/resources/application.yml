@@ -8,9 +8,9 @@ spring:
     username: ${MYSQL_USER:root}
     password: ${MYSQL_PASSWORD:03322593149}
   jpa:
-    database-platform: org.hibernate.dialect.MySQLDialect
+    database-platform: org.hibernate.dialect.MySQL55Dialect
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
       show-sql: true
       format-sql: true
       type: info
