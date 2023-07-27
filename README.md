@@ -63,6 +63,4 @@ This project is licensed under the MIT License.
 
 ## Contact
 
-Provide contact information in case users or other developers want to reach out to you regarding the project. You can mention your email address, social media profiles, or a link to your personal website.
-
-Feel free to customize the above template according to your specific project's needs. A good README is essential for helping others understand and use your project effectively. Keep it clear, concise, and informative. Happy coding!
+Reach out to me ```rimmelasghar4@gmail.com```
