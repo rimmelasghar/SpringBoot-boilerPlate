@@ -38,6 +38,26 @@ public class BookController {
         return ResponseEntity.ok(savedBook);
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<Book> updateBook(@PathVariable Long id, @RequestBody Book updatedBook) {
+        // Call the service method to update the book
+        Optional<Book> existingBookOptional = bookService.getBookById(id);
+
+        if (existingBookOptional.isPresent()) {
+            Book existingBook = existingBookOptional.get();
+            existingBook.setTitle(updatedBook.getTitle());
+            existingBook.setAuthor(updatedBook.getAuthor());
+            existingBook.setGenre(updatedBook.getGenre());
+
+            // Save the updated book using the service
+            Book savedBook = bookService.saveBook(existingBook);
+            return ResponseEntity.ok(savedBook);
+        } else {
+            // Book with the given id not found
+            return ResponseEntity.notFound().build();
+        }
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteBook(@PathVariable Long id) {
         bookService.deleteBook(id);
