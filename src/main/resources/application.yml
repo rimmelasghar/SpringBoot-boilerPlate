@@ -1,10 +1,11 @@
 server:
-  port: 8081
+  port: 8080
   error:
     include-message: always
+
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/world?createDatabaseIfNotExist=true&autoReconnect=true&useSSL=false
+    url: jdbc:mysql://localhost:3306/${MYSQL_DATABASE:world}?createDatabaseIfNotExist=true&autoReconnect=true&useSSL=false
     username: ${MYSQL_USER:root}
     password: ${MYSQL_PASSWORD:03322593149}
   jpa:
@@ -40,15 +41,15 @@ logging:
 
 jwt:
   secretKey: secret
-  issuer: https://github.com/rimmelasghar
+  issuer: ${JWT_ISSUER:https://github.com/rimmelasghar}
   expirationMinute: 10
 
 swagger:
   contact-name: Rimmel Asghar
-  contact-mail: rimmelasghar4@email.com
-  contact-url: https://rimmelasghar.com
-  app-name: Spring Boot Boilerplate Project
+  contact-mail: ${SWAGGER_CONTACT_MAIL:rimmelasghar4@email.com}
+  contact-url: ${SWAGGER_CONTACT_URL:https://rimmelasghar.com}
+  app-name: ${SWAGGER_APP_NAME:Spring Boot Boilerplate Project}
   app-description: "Spring Boot Boilerplate is a starter kit for developing production ready SpringBoot Applications. This project includes : Spring Boot(3.1.2), Spring Data JPA, Spring Validation, Spring Security + JWT Token, MySQL, Mapstruct, Lombok, Swagger "
-  app-version: 2.0.0
-  app-license-url: https://www.apache.org/licenses/LICENSE-2.0.html
-  app-license: Apache 2.0
+  app-version: ${SWAGGER_APP_VERSION:2.0.0}
+  app-license-url: ${SWAGGER_APP_LICENSE_URL:https://www.apache.org/licenses/LICENSE-2.0.html}
+  app-license: ${SWAGGER_APP_LICENSE:Apache 2.0}

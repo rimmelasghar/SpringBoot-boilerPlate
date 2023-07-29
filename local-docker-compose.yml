@@ -3,16 +3,18 @@ version: '3.8'
 services:
 
   db:
+    image: mysql:5.7
     container_name: db
-    image: mysql:latest
     restart: always
     ports:
       - "3306:3306" # MySQL uses port 3306
     environment:
-      MYSQL_ROOT_PASSWORD: example
-      MYSQL_DATABASE: your_database_name # Replace with your desired database name
-      MYSQL_USER: your_mysql_user # Replace with your desired MySQL username
-      MYSQL_PASSWORD: your_mysql_password # Replace with your desired MySQL password
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD} # Set your desired MySQL root password
+      MYSQL_DATABASE: ${DB_NAME} # Replace with your desired database name
+      MYSQL_USER: ${DB_USER} # Replace with your desired MySQL username
+      MYSQL_PASSWORD: ${DB_PASSWORD} # Replace with your desired MySQL password
+    volumes:
+      - db_data:/var/lib/mysql
 
   app:
     container_name: app
@@ -21,8 +23,16 @@ services:
     ports:
       - "8080:8080"
     environment:
-      - "SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/your_database_name" # Replace 'your_database_name' with the same name you used for MYSQL_DATABASE in the db service.
-      - "SPRING_DATASOURCE_USERNAME=your_mysql_user" # Replace 'your_mysql_user' with the same name you used for MYSQL_USER in the db service.
-      - "SPRING_DATASOURCE_PASSWORD=your_mysql_password" # Replace 'your_mysql_password' with the same name you used for MYSQL_PASSWORD in the db service.
+      - "SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/${DB_NAME}" # Replace 'your_database_name' with the same name you used for MYSQL_DATABASE in the db service.
+      - "SPRING_DATASOURCE_USERNAME=${DB_USER}" # Replace 'your_mysql_user' with the same name you used for MYSQL_USER in the db service.
+      - "SPRING_DATASOURCE_PASSWORD=${DB_PASSWORD}" # Replace 'your_mysql_password' with the same name you used for MYSQL_PASSWORD in the db service.
     depends_on:
       - db
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8080/actuator/health || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+volumes:
+  db_data:
