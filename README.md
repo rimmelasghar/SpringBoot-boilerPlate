@@ -6,7 +6,7 @@
 
 ## Description
 
-Spring Boot Boilerplate is a starter kit for developing production ready SpringBoot Applications. This project includes : Spring Boot(3.1.2), Spring Data JPA, Spring Validation, Spring Security + JWT Token, MySQL, Mapstruct, Lombok, Swagger.
+Spring Boot Boilerplate is an advanced foundation designed to facilitate the development of robust, production-ready Spring Boot applications. This comprehensive project encompasses a cutting-edge technology stack, featuring Spring Boot (version 3.1.2), Spring Data JPA, Spring Validation, Spring Security with JWT Token support, MySQL integration, Mapstruct for seamless data mapping, Lombok for concise code generation, and Swagger for streamlined API documentation.
 
 ## Table of Contents
 
