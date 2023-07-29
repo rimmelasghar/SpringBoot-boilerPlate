@@ -76,11 +76,13 @@ Now, your application will be up and running. You can access it in your web brow
 These features collectively form a strong foundation for developing production-ready Spring Boot applications, saving development time and effort and ensuring best practices are followed throughout the development process.
 
 ## Documentation
-
-If your project requires more detailed documentation or has extensive API documentation, link it here. Consider using a wiki or hosting documentation on a separate website if needed.
+- Swagger UI:
+  ![](https://github.com/rimmelasghar/SpringBoot-boilerPlate/blob/main/imgs/swagger-1.jpg)
+- Get Request:
+  ![](https://github.com/rimmelasghar/SpringBoot-boilerPlate/blob/main/imgs/swagger-2.jpg)
+  
+  
 ## Contributing
-
-Explain how others can contribute to your project. Include guidelines for bug reporting, feature requests, and code contributions. Also, mention any coding standards and best practices that contributors should follow.
 
 To contribute to this project, follow these steps:
 
