@@ -100,5 +100,4 @@ This project is licensed under the MIT License.
 
 Reach out to me ```rimmelasghar4@gmail.com```
 
-
 made by Rimmel Asghar with ❤️
